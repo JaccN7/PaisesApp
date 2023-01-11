@@ -9,9 +9,9 @@
 <h1 align="center">Paises App</h1>
 
 <p align="center">
-  <img alt="Github top language" src="https://img.shields.io/github/languages/top/{{YOUR_GITHUB_USERNAME}}/paises-app?color=560d96">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/JaccN7/PaisesApp?color=560d96">
 
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{YOUR_GITHUB_USERNAME}}/paises-app?color=560d96">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/JaccN7/PaisesApp?color=560d96">
 </p>
 
 # PaisesApp
