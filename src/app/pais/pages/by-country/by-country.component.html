@@ -2,36 +2,20 @@
 <hr>
 <div class="row">
     <div class="col">
-        <form autocomplete="off" (ngSubmit)="buscar()"> 
-            <input type="text"
-                    name="buscarPais"
-                    class="form-control"
-                    placeholcer="Bucasr país..."
-                    [(ngModel)]="buscarPais"
-                    />
-        </form>
+        <app-country-input
+        (onEnter)="buscar($event)"></app-country-input> <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
     </div>
 </div>
 <hr>
 
-<div class="alert alert-danger">
-    No se encontró el país
+<div *ngIf="error"
+    class="alert alert-danger">
+    No se encontró el país "{{buscarPais}}""
 </div>
 
-<div class="row">
+<div *ngIf="paisesArray.length > 0"
+    class="row">
     <div class="col">
-        <table class="table table-hover">
-            <thead >
-                <tr>
-                    <th>#</th>
-                    <th>Bandera</th>
-                    <th>Nombre</th>
-                    <th>Población</th>
-                </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
+        <app-country-table [paisesArray]="paisesArray"></app-country-table> <!-- Con los corchetes indicamos que es una propiedad, el valor entre corchetes es el nombre de la propiedad hija y se iguala al valor de la propiedad padre -->
     </div>
 </div>
