@@ -30,4 +30,9 @@ export class ByCountryComponent {
             }
         })
     }
+
+    sugerencias( buscarPais: string){
+        this.error = false;
+        console.log(buscarPais);
+    }
 }
