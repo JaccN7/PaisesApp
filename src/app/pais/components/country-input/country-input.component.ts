@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
 @Component({
@@ -13,6 +13,7 @@ export class PaisInputComponent implements OnInit {
 
     @Output() onDebounce: EventEmitter<string> = new EventEmitter; //onDebounce se emitira cuando se deje de escribir
 
+    @Input() terminoPlaceholder: string = '';
     //un debouncer es un temporizador que se ejecuta cuando se deja de escribir
     debouncer: Subject<string> = new Subject; //Subject es un observable
 
@@ -32,7 +33,7 @@ export class PaisInputComponent implements OnInit {
     }
 
     buscar() {
-        console.log("input: "+this.buscarPais);
+        console.log("input: " + this.buscarPais);
         this.onEnter.emit(this.buscarPais);
     }
 

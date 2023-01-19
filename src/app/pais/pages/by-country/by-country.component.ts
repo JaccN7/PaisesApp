@@ -13,6 +13,7 @@ export class ByCountryComponent {
     public buscarPais: string = '';
     public error: boolean = false;
     public paisesArray: Country[] = [];
+    public terminoPlaceholder: string = 'Buscar país...';
 
     constructor(private paisServices: PaisService) { }
 

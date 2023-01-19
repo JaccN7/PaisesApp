@@ -4,7 +4,8 @@
     <div class="col">
         <app-country-input
         (onEnter)="buscar( $event )"
-        (onDebounce)="sugerencias( $event )"></app-country-input> <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
+        (onDebounce)="sugerencias( $event )"
+        [terminoPlaceholder]="terminoPlaceholder"></app-country-input> <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
     </div>
 </div>
 <hr>
