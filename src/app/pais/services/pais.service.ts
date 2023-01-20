@@ -21,4 +21,11 @@ export class PaisService {
         const urlCapital = `${this.apiUrlBase }/capital/${ capitalName }`;
         return this.http.get<Country[]>(urlCapital);
     }
+
+    seeCountryByCode(id: string): Observable<Country> {
+        const urlCapital = `${this.apiUrlBase }/alpha/${ id }`;
+        return this.http.get<Country>(urlCapital);
+    }
+
+
 }
