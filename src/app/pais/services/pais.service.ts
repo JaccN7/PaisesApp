@@ -27,5 +27,9 @@ export class PaisService {
         return this.http.get<Country[]>(urlCapital);
     }
 
+    findByRegion(region: string): Observable<Country[]> {
+        const urlRegion = `${this.apiUrlBase }/region/${ region }`;
+        return this.http.get<Country[]>(urlRegion);
+    }
 
 }
