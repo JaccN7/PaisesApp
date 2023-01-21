@@ -22,9 +22,9 @@ export class PaisService {
         return this.http.get<Country[]>(urlCapital);
     }
 
-    seeCountryByCode(id: string): Observable<Country> {
+    seeCountryByCode(id: string): Observable<Country[]> {
         const urlCapital = `${this.apiUrlBase }/alpha/${ id }`;
-        return this.http.get<Country>(urlCapital);
+        return this.http.get<Country[]>(urlCapital);
     }
 
 

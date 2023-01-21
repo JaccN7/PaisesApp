@@ -1,1 +1,44 @@
-<p>see-country works!</p>
+<div *ngIf="!country; else divPais" class="alert alert-info">
+    Espere por favor...
+</div>
+<!-- un ng-template es un contenedor que no se muestra en el DOM hasta que no se le llama -->
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h1>País: <small>{{ country.name.common }}</small></h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>Bandera</h3>
+            <img [src]="country.flags.png" alt="" class="img-fluid">
+        </div>
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Población: {{ country.population }}</li>
+                <li class="list-group-item">Idioma: {{ country.languages.spa }}</li>
+                <li class="list-group-item">Capital: {{ country.capital }}</li>
+                <li class="list-group-item">Región: {{ country.region }}</li>
+                <li class="list-group-item">Sub Región: {{ country.subregion }}</li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3 class="mt-5">Traducciones</h3>
+    <div class="row">
+        <div class="col">
+            <span *ngFor="let t of country.translations | keyvalue" class="badge bg-primary me-2">{{ t.value.official }}</span>
+            <!-- <span class="badge badge-primary mr-2">Inglés: {{ (country.translations['eng'].common) }}</span>
+            <span class="badge badge-primary mr-2">Alemán: {{ country.translations['deu'].common }}</span>
+            <span class="badge badge-primary mr-2">Japonés: {{ country.translations['jpn'].common }}</span>
+            <span class="badge badge-primary mr-2">Portugués: {{ country.translations['por'].common }}</span>
+            <span class="badge badge-primary mr-2">Ruso: {{ country.translations["rus"].common }}</span> -->
+        </div>
+    </div>
+
+<!--     <pre class="mt-5">
+        {{ country | json }}
+    </pre> -->
+</ng-template>
