@@ -1,23 +1,32 @@
-<h2>Por País</h2>
-<hr>
-<div class="row">
-    <div class="col">
-        <app-country-input
-        (onEnter)="buscar( $event )"
-        (onDebounce)="sugerencias( $event )"
-        [terminoPlaceholder]="terminoPlaceholder"></app-country-input> <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
+<div class="animate__animated animate__fadeIn">
+    <h2>Por País</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <app-country-input (onEnter)="buscar( $event )" (onDebounce)="sugerencias( $event )"
+                [terminoPlaceholder]="terminoPlaceholder"></app-country-input>
+            <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
+        </div>
     </div>
-</div>
-<hr>
 
-<div *ngIf="error"
-    class="alert alert-danger">
-    No se encontró el país "{{buscarPais}}""
+    <ul *ngIf="mostrarSugerencias" class="list-group">
+        <li *ngFor="let pais of paisesSugeridos" class="list-group-item list-group-item-action">
+            <a class="nav-link" [routerLink]="['/country', pais.cca2]"> {{ pais.name.common }} </a>
+        </li>
+        <li class="list-group-item list-group-item-action"
+            (click)="buscarSugerido( buscarPais )">
+            <a class="nav-link">Buscar {{ buscarPais }}</a></li>
+    </ul>
+
+    <hr>
+</div>
+<div *ngIf="error" class="alert alert-danger animate__heartBeat">
+    No se encontró el país " {{ this.buscarPais }} "
 </div>
 
-<div *ngIf="paisesArray.length > 0"
-    class="row">
+<div *ngIf="paisesArray.length > 0" class="row">
     <div class="col">
-        <app-country-table [paisesArray]="paisesArray"></app-country-table> <!-- Con los corchetes indicamos que es una propiedad, el valor entre corchetes es el nombre de la propiedad hija y se iguala al valor de la propiedad padre -->
+        <app-country-table [paisesArray]="paisesArray"></app-country-table>
+        <!-- Con los corchetes indicamos que es una propiedad, el valor entre corchetes es el nombre de la propiedad hija y se iguala al valor de la propiedad padre -->
     </div>
 </div>

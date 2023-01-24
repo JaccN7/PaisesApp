@@ -1,22 +1,22 @@
-<h2>Por País</h2>
-<hr>
-<div class="row">
+<div class="animate__animated animate__fadeIn">
+    <h2>Por Capital</h2>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <app-country-input (onEnter)="buscar( $event )"
+                [terminoPlaceholder]="terminoPlaceholder"></app-country-input>
+            <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
+        </div>
+    </div>
+    <hr>
+</div>
+<div *ngIf="error" class="alert alert-danger">
+    No se encontró la Capital: "{{buscarCapital}}"
+</div>
+
+<div *ngIf="paisesArray.length > 0" class="row">
     <div class="col">
-        <app-country-input
-        (onEnter)="buscar( $event )" [terminoPlaceholder]="terminoPlaceholder"></app-country-input> <!-- Con los paréntesis indicamos que es un evento, el valor entre paréntesis es el nombre del evento hijo y se le pasa la funcion del padre -->
+        <app-country-table [paisesArray]="paisesArray"></app-country-table>
+        <!-- Con los corchetes indicamos que es una propiedad, el valor entre corchetes es el nombre de la propiedad hija y se iguala al valor de la propiedad padre -->
     </div>
 </div>
-<hr>
-
-<div *ngIf="error"
-    class="alert alert-danger">
-    No se encontró la Capital: "{{buscarCapital}}""
-</div>
-
-<div *ngIf="paisesArray.length > 0"
-    class="row">
-    <div class="col">
-        <app-country-table [paisesArray]="paisesArray"></app-country-table> <!-- Con los corchetes indicamos que es una propiedad, el valor entre corchetes es el nombre de la propiedad hija y se iguala al valor de la propiedad padre -->
-    </div>
-</div>
-

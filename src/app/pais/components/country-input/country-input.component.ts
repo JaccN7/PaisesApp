@@ -27,7 +27,6 @@ export class PaisInputComponent implements OnInit {
             debounceTime(300) //no se ejecutara el subscribe hasta que se deje de escribir por 300 milisegundos
         )
         .subscribe(valorBuscado => {
-            console.log('debouncer: ',valorBuscado);
             this.onDebounce.emit(valorBuscado);
         })
     }

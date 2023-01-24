@@ -21,15 +21,15 @@ export class ByRegionComponent {
     }
 
     activateRegion(region: string) {
-        this.regionActiva = region;
-    }
+        //Comprobar que se presiono el mismo boton 
+        if (region === this.regionActiva) { return; }
 
-    buscarRegion(region: string) {
-        if(region === this.regionActiva) { return; }
+        this.regionActiva = region;
+        
         this.regionesArray = [];
-        this.paisService.findByRegion(region).subscribe(resp => {
-            console.log(resp);
+        this.paisService.findByRegion(this.regionActiva).subscribe(resp => {
             this.regionesArray = resp;
         })
     }
+
 }

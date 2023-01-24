@@ -19,7 +19,7 @@ export class ByCapitalComponent {
 
     buscar( buscarCapital: string){
         this.error = false;
-        console.log(buscarCapital);
+        this.buscarCapital = buscarCapital;
         this.paisServices.findByCapitalName(buscarCapital).subscribe({
             next: (resp) => {
                 console.log(resp);
